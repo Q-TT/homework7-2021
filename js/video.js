@@ -25,13 +25,14 @@ document.querySelector("#faster").addEventListener("click", function(){
 	video.playbackRate /= 0.95;
 	console.log("Video speed is " + video.playbackRate * 100 + "%");
 });
-document.querySelector("#skip").addEventListener("click", function(){
-	video.play();
-	video.currentTime += 15;
-	if (video.currentTime > video.duration) {
-		video.currentTime = 0
+document.querySelector("#skip").addEventListener("click", function() {
+	if(video.currentTime < video.duration -15){
+		video.currentTime += 15
 	}
-	console.log("Current time is " + video.currentTime);
+	else{
+		video.currentTime = 0
+		console.log("Going back")
+	}
 });
 document.querySelector("#mute").addEventListener("click", function() {
 	if(video.muted == false){
